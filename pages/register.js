@@ -3,15 +3,16 @@ import { Avatar, Text, TextInput, Button} from 'react-native-paper';
 import styles from '../styles/styles';
 import React, { useState } from 'react';
 
-const Login = () => {
+const Register = () => {
     const [text, setText] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [togglePassword, setTogglePassword] = useState(false);
     return (
         <View style={loginStyle.container}>
-            <View style={{...loginStyle.section,...loginStyle.logoBox}}>
-                <Avatar.Image style={{ backgroundColor: 'transparent', borderWidth: 2}}source={require("../assets/avatar.png")}size={100}/>
-                <Text variant='headlineLarge' style={{marginTop: 10, color: 'black'}}>Basta App</Text>
+            <View style={{...loginStyle.section,...loginStyle.reglogoBox}}>
+                <Avatar.Image style={{ backgroundColor: 'transparent', borderWidth: 2}}source={require("../assets/avatar.png")}size={70}/>
+                <Text variant='displayMedium' style={{marginTop: 10, color: 'black'}}>Registration</Text>
+                <Text variant='headlineMedium' style={{marginTop: 10, color: 'black'}}>Basta App</Text>
             </View>
             <View style={loginStyle.section}>
             <TextInput
@@ -35,17 +36,27 @@ const Login = () => {
                 icon={togglePassword ? "eye" : "eye-off"} size={18}/>}
                 secureTextEntry={!togglePassword}
             />
+                        <TextInput
+                style ={{...loginStyle.inputBox}}
+                textContentType='password'
+                label="Confirm Password"
+                value={password}
+                onChangeText={password => setPassword(password)}
+                mode='outlined'
+                left={<TextInput.Icon icon="key"/>}
+                right={<TextInput.Icon onPress={() => setTogglePassword(!togglePassword)}
+                icon={togglePassword ? "eye" : "eye-off"} size={18}/>}
+                secureTextEntry={!togglePassword}
+            />
             </View>
             <View style={loginStyle.section}> 
-                <Button style={{...loginStyle.buttonBox, width: 300}} icon="login" mode="contained-tonal" onPress={() => console.log('LOGIN')}>Login</Button>
-                <Button style={{...loginStyle.buttonBox, marginTop: 0, width: 300}}  mode="text" onPress={() => console.log('REGISTER')}>Don't have an account yet?</Button>
-                <Button style={{...loginStyle.buttonBox, marginTop: 0, width: 300}}  mode="text" onPress={() => console.log('BOBOKA')}>Forgot Password</Button>
+                <Button style={{...loginStyle.buttonBox, width: 300}} icon="account-check" mode="contained-tonal" onPress={() => console.log('REGISTER')}>Register</Button>
             </View>
             
         </View>
     )
 }
 
-export default Login
+export default Register
 
 const loginStyle = StyleSheet.create(styles)

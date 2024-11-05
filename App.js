@@ -1,5 +1,7 @@
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Login from './pages/login';
+import Register from './pages/register';
+import ResetPass from './pages/resetpass';
 import { PaperProvider } from 'react-native-paper';
 
 

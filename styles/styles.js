@@ -16,6 +16,22 @@ const styles = {
     logoBox: {
         justifyContent: 'center', 
         alignItems: 'center',
+    },
+    reglogoBox: {
+        justifyContent: 'center', 
+        alignItems: 'center',
+    },
+    inputBox: {
+        width: 300,
+        justifyContent: 'center',
+        marginBottom: 20,
+        marginLeft: 50
+    },
+    buttonBox:{
+        height: 50,
+        justifyContent: 'center',
+        marginLeft: 60,
+        marginTop: 50,
     }
 }
 
