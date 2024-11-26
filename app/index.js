@@ -2,8 +2,11 @@ import {ScrollView, View, StyleSheet} from 'react-native'
 import { Avatar, Text, TextInput, Button} from 'react-native-paper';
 import styles from '../styles/styles';
 import React, { useState } from 'react';
+import { useRouter } from 'expo-router';
 
 const Login = () => {
+
+    const router = useRouter(" ");
     const [text, setText] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [togglePassword, setTogglePassword] = useState(false);
@@ -37,9 +40,9 @@ const Login = () => {
             />
             </View>
             <View style={loginStyle.section}> 
-                <Button style={{...loginStyle.buttonBox, width: 300}} icon="login" mode="contained-tonal" onPress={() => console.log('LOGIN')}>Login</Button>
-                <Button style={{...loginStyle.buttonBox, marginTop: 0, width: 300}}  mode="text" onPress={() => console.log('REGISTER')}>Don't have an account yet?</Button>
-                <Button style={{...loginStyle.buttonBox, marginTop: 0, width: 300}}  mode="text" onPress={() => console.log('BOBOKA')}>Forgot Password</Button>
+                <Button style={{...loginStyle.buttonBox, width: 300}} icon="login" mode="contained-tonal" onPress={() => router.replace("dashboard")}>Login</Button>
+                <Button style={{...loginStyle.buttonBox, marginTop: 0, width: 300}}  mode="text" onPress={() => router.push("register")}>Don't have an account yet?</Button>
+                <Button style={{...loginStyle.buttonBox, marginTop: 0, width: 300}}  mode="text" onPress={() => router.push("resetpass")}>Forgot Password</Button>
             </View>
             
         </View>

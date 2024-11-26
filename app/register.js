@@ -2,8 +2,10 @@ import {ScrollView, View, StyleSheet} from 'react-native'
 import { Avatar, Text, TextInput, Button} from 'react-native-paper';
 import styles from '../styles/styles';
 import React, { useState } from 'react';
+import { useRouter } from 'expo-router';
 
 const Register = () => {
+    const router = useRouter( );
     const [text, setText] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [togglePassword, setTogglePassword] = useState(false);
@@ -50,7 +52,7 @@ const Register = () => {
             />
             </View>
             <View style={loginStyle.section}> 
-                <Button style={{...loginStyle.buttonBox, width: 300}} icon="account-check" mode="contained-tonal" onPress={() => console.log('REGISTER')}>Register</Button>
+                <Button style={{...loginStyle.buttonBox, width: 300}} icon="account-check" mode="contained-tonal" onPress={() => router.back()}>Register</Button>
             </View>
             
         </View>
